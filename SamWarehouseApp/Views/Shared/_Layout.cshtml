@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SamWarehouseApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SamWarehouseApp.styles.css" asp-append-version="true" />
+</head>
+<body class="default-background-color">
+    <header> 
+        <nav class="navbar navbar-expand-lg navbar-toggleable-lg  navbar-light mb-3 flex-row">
+            <div  class="container-fluid">
+                <div>
+                        <img id="logo" src="/Resources/Sams Warehouse Shopping Cart.svg" class="rounded-3 bg-white" />
+                    
+                
+                </div>
+                <button class="navbar-toggler navbar-dark default-text-color" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-end default-text-color">
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link default-text-color" asp-area="" asp-controller="ShoppingLists" asp-action="Index">My Lists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link default-text-color" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                        </li>
+                        <li>
+                            <partial name="_LoginPartial" />
+                        </li>
+                        <li>
+                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btnradio1" id="btnradio1Label" onclick="switchTheme('light')">Light</label>
+
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                <label class="btn btn-outline-primary visually-hidden                                                                                         " for="btnradio2">Radio 2</label>
+
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btnradio3" id="btnradio2Label" onclick="switchTheme('dark')">Dark</label>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="col p-3">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div class="modal" id="SpinnerModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+                <div class="progress-loader">
+                    <div class="progress"></div>
+                </div>
+        </div>
+    </div>
+
+    <div class="modal" id="success-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal modal-sm">
+            <div class="modal-content">
+
+                <div class="modal-body" id="addProductModalBody">
+                    <h1 class="text-success">Success</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="fail-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal modal-sm">
+            <div class="modal-content">
+
+                <div class="modal-body" id="addProductModalBody">
+                    <h1 class="text-danger">Failed</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted default-text-color">
+        <div class="container">
+            &copy; 2023 - SamWarehouseApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

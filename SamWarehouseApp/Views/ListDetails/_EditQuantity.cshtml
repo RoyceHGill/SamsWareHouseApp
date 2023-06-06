@@ -1,0 +1,48 @@
+﻿@model SamWarehouseApp.Models.ListDetails
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+<h1 class="default-text-color">Quantity</h1>
+<hr />
+<div class="row ">
+    <div class="row">
+            
+        <div class="col text-center m-2 mb-3 form-group">
+                
+            <a type="button" id="quantity-decrease">
+                <span class="material-symbols-outlined default-text-color text-center unselectable">
+                    arrow_back_ios
+                </span>
+            </a>
+
+            <label class="h1 text-center default-text-color col-2 unselectable" id="quantity-display"></label>
+            <a type="button" id="quantity-increase">
+                <span class="material-symbols-outlined default-text-color unselectable">
+                    arrow_forward_ios
+                </span>
+            </a>
+        </div>
+            
+    </div>
+</div>
+
+<form asp-action="Edit">
+<input type="hidden" asp-for="Id" class="form-control" value="@Model.Id" />
+<input type="hidden" asp-for="ProductId" class="form-control" value="@Model.ProductId"/>
+<input type="hidden" asp-for="ListId" class="form-control" value="@Model.ListId"/>
+<input type="hidden" asp-for="Quantity" class="text-center col-2 form-control" id="quantity-submit" value="" />
+    
+<div class="d-flex flex-row-reverse">
+    <div class="col d-flex justify-content-end">
+        <input type="submit" value="Save" class="btn btn-save" id="save-quantity"/>
+    </div>
+    <div class ="col d-flex justify-content-end">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="close-dialog">Cancel</button>
+    </div>
+
+</div>
+</form>
+

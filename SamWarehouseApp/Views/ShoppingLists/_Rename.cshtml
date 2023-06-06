@@ -1,0 +1,16 @@
+﻿@model SamWarehouseApp.Models.ShoppingList
+
+    <h1 class="display-8 default-text-color">Renaming: @Model.Name</h1>
+    <p id="rename-validation" class="fs-5 fw-bold text-danger m-0 p-0"></p>
+<div class="form-group col-8 mb-4">
+        <input id="rename-input" type="text" maxlength="30" class="form-control" placeholder="Name" class/>
+    <input id="listName" type="hidden" value="@Model.Name" />
+    <input  class=" visually-hidden" name="SamsAppUserId" value="@ViewBag.SamsAppUserId" />
+</div>
+<div class="form-group d-flex flex-row-reverse">
+    <button type="button" id="@Model.Id" class="btn btn-save mx-4 button-submit">Save</button>
+    <button type="button" class="btn btn-primary mx-4" data-bs-dismiss="modal" id="close-shopping-list-modal">Cancel</button>
+</div>
+
+
+

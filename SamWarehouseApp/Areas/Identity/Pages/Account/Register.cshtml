@@ -1,0 +1,53 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="container-fluid flex-row justify-content-centerc col-lg-5  mt-5">
+    <div class="card col-lg-12 shadow border-3" id="login-card">
+        <div class="row align-content-center justify-content-center p-4">
+
+            <h1>@ViewData["Title"]</h1>
+            <h2 >Create a new account.</h2>
+            <h2 class="text-danger">This is not a Secure Application, Do not use a real emails or passwords to sign up.</h2>
+            <div class="col-lg-11">
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <label asp-for="Input.Email" class="form-label m-2 mb-0 fw-bold fs-4"></label>
+                    <div class="form-floating m-2">
+                        <input asp-for="Input.Email" class="form-control p-2 fs-5" autocomplete="username" aria-required="true" value="Alias@@email.com"/>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                <label asp-for="Input.Password" class="form-label m-2 mb-0 fw-bold fs-4"></label>
+                    <div class="form-floating m-2">
+                        <input asp-for="Input.Password" class="form-control p-2 fs-5" autocomplete="new-password" aria-required="true" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <label asp-for="Input.ConfirmPassword" class="form-label m-2 mb-0 fw-bold fs-4"></label>
+                    <div class="form-floating m-2">
+                        <input asp-for="Input.ConfirmPassword" class="form-control p-2 fs-5" autocomplete="new-password" aria-required="true" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="col m-2">
+                        <div class="row">
+                            
+                                <a class="text-decoration-none text-black mt-3" id="login" asp-page="/Account/Login">Already a member? Sign in.</a>
+
+                            
+                            <div class="col d-flex justify-content-end">
+                                <button id="registerSubmit" type="submit" class=" btn btn-lg border-3 btn-primary mt-3">Register</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,49 @@
+﻿@model SamWarehouseApp.Models.ShoppingList
+
+@{
+    float total = (float)ViewBag.Total;
+    
+
+}
+
+<div class="mt-4">
+    <h1 class="text-center  default-text-color display-8">@Model.Name</h1>
+    <p class="m-2 default-text-color fs-5">Created: @Model.Created.ToString("dd/MM/yyyy")</p>
+    <p class="m-2 default-text-color h3" id="price-total">Total: $@total.ToString("0.00")</p>
+</div>
+
+
+@if (Model.ListDetails.Count < 1)
+{
+    <h1 class="display-5 default-text-color">
+        No items in the current list.
+    </h1>
+}
+else
+{
+    @foreach (var item in Model.ListDetails)
+    {
+        <div class=" card inner-card shadow col-lg-11 m-lg-3 m-2 p-2 default-text-color" id="">
+            <div class="col d-flex flex-row justify-content-around ">
+                <h1 class="align-self-center m-0 col-7 fs-6">
+                    @item.Product.Name
+                </h1>
+                <p class="align-self-center m-0">
+                    $@item.Product.Price /@item.Product.Unit
+                </p>
+                <p class="align-self-center m-0 fs-5 ">
+                    @item.Quantity
+                </p>
+            </div>
+        </div>
+    }
+}
+    <div class="row d-flex justify-content-center p-3">
+        <a data-open-modal-add type="button" id="@Model.Id" class="text-decoration-none add-link">
+
+            <span id="@Model.Id" class="material-symbols-outlined d-flex justify-content-center text-success size-48">add</span>
+        </a>
+    </div>
+
+    
+    

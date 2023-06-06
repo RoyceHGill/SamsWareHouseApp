@@ -1,0 +1,32 @@
+﻿@*
+    
+*@
+@model SamWarehouseApp.Models.ShoppingList
+@{
+    
+}
+
+<div class="row">
+    <div class="col">
+        <form id="new-list-submit">
+            <div class="form-group">
+                <label id="new-list-validation" class="control-label mb-2 fw-bold text-danger"></label>
+                <input id="new-list-input" name="Name" type="text" maxlength="30" class="form-control" placeholder="Name your List" />
+                <input id="userId" class=" visually-hidden" name="SamsAppUserId" value="@ViewBag.SamsAppUserId" />
+                <input id="listName" class=" visually-hidden" name="SamsAppUserId" value="@ViewBag.SamsAppUserId" />
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex justify-content-end mt-5">
+                
+                <button type="button" class="btn btn-primary mx-2" data-bs-dismiss="modal" id="closeCreateModal">Close</button>
+                <input type="submit" value="Save" class="btn btn-save mx-2" id="create-shopping-list-button"/>
+
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

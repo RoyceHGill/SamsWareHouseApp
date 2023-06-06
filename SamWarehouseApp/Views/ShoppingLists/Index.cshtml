@@ -1,0 +1,96 @@
+﻿@model IEnumerable<SamWarehouseApp.Models.ShoppingList>
+
+@{
+    ViewData["Title"] = "Index";
+    var result = ViewBag.Result;
+
+    bool namingfailed = ViewBag.DidNamingWork == null ? false : true;
+}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
+ <div class="d-flex justify-content-center ">
+    <div class="card col-lg-8 col m-lg-3">
+        <div class="d-flex flex-lg-row flex-column justify-content-lg-around">
+            <div class="row p-lg-4 justify-content-center align-content-start">
+                <h1 class="display-8 text-center m-2 default-text-color">Shopping Lists</h1>
+            @foreach (var item in Model) {
+                    <div class=" card inner-card shadow row col-11 m-2 p-2 jump">
+                    <a type="button" class="text-decoration-none m-0 col shopping-list ">
+                            <div class="col d-flex flex-row justify-content-between align-items-center ">
+                                <h1 class="fs-6 m-0 default-text-color list-name" id="@item.Id">
+                                @item.Name
+                            </h1>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">
+                                <span class="material-symbols-outlined text-success size-28 ">
+                                    format_list_bulleted
+                                </span>
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            }
+                    <div class="row col-12 d-flex justify-content-center">
+                    <a data-open-modal-create type="button" class=" text-decoration-none add-link d-flex jump">
+                            <span class="material-symbols-outlined d-flex align-text-top justify-content-center text-success col size-48">add</span>
+                        </a>
+                    </div>
+                </div>
+            <div class=" col col-lg-5 p-lg-2 mt-lg-5" id="list-display-card">
+        
+                <div id="list-details-partial">
+                    <h1 class="text-center default-text-color">
+                        No list selected
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="createModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h4 class="default-text-color">New ShoppingList</h4>
+            </div>
+            <div class="modal-body" id="createModalBody">
+            </div>
+            
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="addProductModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal modal-xl modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="default-text-color">
+                    Products
+                </h1>
+            </div>
+            <div class="modal-body" id="addProductModalBody">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary mx-2" data-bs-dismiss="modal" id="closeProductModal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@if (namingfailed)
+{
+    <div class="modal" id="name-fail-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal modal-sm">
+            <div class="modal-content">
+
+                <div class="modal-body" id="">
+                    <h1 class="text-danger">List Names must be unique</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+    

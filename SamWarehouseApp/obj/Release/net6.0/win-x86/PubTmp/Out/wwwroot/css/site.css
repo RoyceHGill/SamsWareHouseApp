@@ -1,0 +1,309 @@
+
+:root[data-theme="theme-light"] {
+    --text-color: #000000;
+    --background-color: #FFFFFF;
+    --border-color: rgb(11, 79, 108, 0.09);
+    --button-color: #145C9E;
+    --card-color: #B8CDF8;
+}
+
+:root[data-theme="theme-dark"] {
+    --text-color: #FFFFFF;
+    --background-color: #13283b;
+    --border-color: rgb(255, 255, 255, 0.09);
+    --button-color: #B8CDF8;
+    --card-color: #145C9E;
+}
+
+#drone-video {
+    height: 23vh;
+    width: 90vw;
+}
+
+.default-text-color{
+    color: var(--text-color) !important;
+}
+
+.default-background-color {
+    background-color: var(--background-color);
+}
+
+.navbar-light .navbar-toggler {
+    border-color: var(--text-color);
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+#logo {
+    max-width: 50px;
+    max-height: auto;
+    position: fixed;
+    left: 50%;
+    top: 1%;
+}
+
+#logo-container {
+    max-width: 50px;
+    max-height: auto;
+}
+
+span.size-28 {
+    font-size: 28px;
+    font-variation-settings: 'OPSZ' 28;
+}
+
+span.size-48 {
+    font-size: 48px;
+    font-variation-settings: 'OPSZ' 48;
+}
+
+.form-control {
+    box-shadow: inset 0px -1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+.add-link {
+    background-color: rgb(167, 250, 148, 0.34);
+    border: dotted;
+    border-color: rgb(68, 182, 0, 0.35);
+    height: 3.6rem !important;
+}
+
+.card {
+    border:solid;
+    border-width:1px;
+    border-color: var(--border-color);
+    background-color: var(--background-color);
+    box-shadow: 0px 5px 7px 1px var(--border-color);
+}
+
+.modal-content {
+    border: solid;
+    border-color: var(--border-color);
+    background-color: var(--card-color);
+}
+
+.inner-card {
+    border: solid;
+    border-width: 2px;
+    border-color: var(--border-color);
+    background-color: var(--card-color);
+    min-height: 3rem !important;
+    height: fit-content;
+}
+
+
+
+.btn-primary {
+    border: solid;
+    border-color: #b6b6ff !important;
+    background-color: #005ad7 !important;
+    color: #FFF !important;
+    font-weight: bold;
+}
+
+.btn-save {
+    border: solid;
+    border-color: #a2ffa1 !important;
+    background-color: #27b115 !important;
+    color: #FFF !important;
+    font-weight: bold;
+}
+
+.btn-danger {
+    border: solid;
+    border-color: #f76868 !important;
+    color: #FFF !important;
+    font-weight: bold;
+}
+
+
+.form-control {
+    max-height: 40px !important;
+}
+
+.description {
+    height: 77px;
+    overflow: hidden;
+}
+
+.show-description {
+    height: auto;
+}
+
+.modal-xxl {
+    max-width: 90vw !important;
+}
+
+.product-card {
+    height: fit-content !important;
+    width: 18rem;
+}
+
+.dialog-button-container {
+    position: relative;
+}
+
+dialog {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    z-index: 1;
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1;
+    width: auto;
+}
+
+/*less than*/
+@media (max-width: 992px) {
+
+    .btn {
+        font-size: 1rem !important;
+    }
+
+    dialog {
+        position: absolute;
+        top: 30%;
+        left: -1075%;
+        z-index: 1;
+    }
+
+    .dialog-create {
+        position: absolute;
+        top: 30%;
+        left: -430%;
+        z-index: 1;
+    }
+}
+
+/*more than*/
+@media (min-width: 576px) {
+    #drone-video {
+        height: 15rem;
+        margin: 100px 0px 100px 0px ;
+    }
+    #about-us-text {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 992px) {
+    #drone-video {
+        height: 30rem;
+        margin: 100px 0px 100px 0px;
+    }
+}
+
+.jump:hover {
+    transform: translateY(-3px);
+}
+
+.jump {
+    transition: all 0.15s ease-out .1s;
+}
+
+body {
+    opacity: 0;
+    transition: opacity 0.1s ease-in;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+.progress-loader {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.progress-loader {
+    width: 150px;
+    background: var(--background-color);
+    height: 3px;
+    border-radius: 7px;
+}
+
+.progress {
+    content: '';
+    width: 1px;
+    height: 3px;
+    border-radius: 7px;
+    background: var(--text-color);
+    transition: 0.5s;
+    animation: loading1274 2s ease infinite;
+}
+
+
+.runawaycart {
+    animation: speedoff 1s ease-in ;
+}
+
+@keyframes speedoff {
+    0% {
+        left: 50%;
+        top: 1%;
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(-30deg);
+        left: 50%;
+        top: 1%;
+        opacity: 1;
+    }
+    100% {
+        left: 110%;
+        top: 1%;
+        opacity: 0;
+        transform: rotate(-30deg);
+    }
+
+}
+
+
+@keyframes loading1274 {
+    0% {
+        width: 0%;
+    }
+
+    10% {
+        width: 10%;
+    }
+
+    50% {
+        width: 40%;
+    }
+
+    60% {
+        width: 60%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+    body.loaded {
+        opacity: 1;
+    }

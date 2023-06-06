@@ -1,0 +1,23 @@
+﻿@using SamWarehouseApp.Models;
+@model SamWarehouseApp.Models.ShoppingList
+
+@{
+    ViewData["Title"] = "Add Products";
+    var products = ViewBag.Products as List<Product>;
+}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
+
+<div class="row d-flex justify-content-lg-start justify-content-around">
+    <div class=" d-flex flex-column col-lg-5 col-8 ">
+        <label id="search-validation" class="control-label mb-2 fw-bold text-danger"></label>
+        <input type="text" class="form-control" id="product-search" placeholder="Search Products" /> 
+    </div>
+    <div class="col d-flex justify-content-center">
+        <a type="button" class="btn btn-primary search-products-button" id="@Model.Id" >Search</a>
+    </div>
+    <div class=" row col-12 d-flex justify-content-lg-between justify-content-center p-5 " id="product-list-partial">
+        
+    </div>
+</div>
+
+

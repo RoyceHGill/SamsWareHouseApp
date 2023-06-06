@@ -1,0 +1,57 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Sign in";
+}
+<div class="container-fluid flex-row justify-content-centerc col-lg-5 mt-5 ">
+    <div class="card col-lg-12 p-4 shadow border-3 " style="border-color:var(--border-color)" id="login-card">
+        <h1 class="default-text-color">@ViewData["Title"]</h1>
+
+        <div class="row align-content-center justify-content-center default-text-color">
+            <div class="col-lg-11">
+                <section>
+                    <form id="account" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <label asp-for="Input.Email" class="form-label m-2 mb-0 fw-bold fs-4"></label>
+                        <div class="form-floating m-2">
+                            <input asp-for="Input.Email" class="form-control fs-5 p-2" autocomplete="username" aria-required="true" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <label asp-for="Input.Password" class="form-label m-2 mb-0 fw-bold fs-4"></label>
+                        <div class="form-floating m-2">
+                            <input asp-for="Input.Password" class="form-control fs-5 p-2" autocomplete="current-password" aria-required="true" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div>
+                            <div class="checkbox ">
+                                <label asp-for="Input.RememberMe" class="form-label">
+                                    <input class="form-check-input" asp-for="Input.RememberMe" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mt-2 col">
+                           <div class="row ">
+                                <a class="text-decoration-none text-black mt-3 default-text-color" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                                <a class="text-decoration-none text-black mt-3 default-text-color" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                                <a class="text-decoration-none text-black mt-3 default-text-color" id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                           </div>
+                            
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <div class="row">
+                                <button id="login-submit" type="submit" class=" btn btn-lg btn-primary">Log in</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+    
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

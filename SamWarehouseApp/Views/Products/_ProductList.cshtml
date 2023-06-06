@@ -1,0 +1,49 @@
+﻿@model List<SamWarehouseApp.Models.Product>
+
+    @{
+        var listId = ViewBag.ListId;
+    }
+
+@if (Model?.Count < 1)
+{
+    <h1 class="display-8 default-text-color">
+        No Products Found
+    </h1>
+}
+else
+{
+    @foreach (var item in Model)
+    {
+        <div class="inner-card default-text-color col-2 m-3 p-2 product-card rounded-3">
+            <div class="row d-flex justify-content-between">
+                <div class="col-9">
+                    <h4>
+                        @item.Name
+                    </h4>
+                </div>
+                <div class="col-3 dialog-button-container p-2">
+                    <a class=" add-product-button" type="button" id="@item.Id">
+                        <span class="material-symbols-outlined size-48 text-success" id="@item.Id">
+                            add_shopping_cart
+                        </span>
+                    </a>
+                    <dialog class="dialog-create default-background-color" style="width:300px;">
+
+                    </dialog>
+                </div>
+
+            </div>
+            <p>
+                $@item.Price/@item.Unit
+            </p>
+            <p class="description">
+                @item.Description
+            </p>
+            <div class="justify-content-end d-flex">
+                <button class="toggle btn btn-outline-dark default-text-color">show more</button>
+            </div>
+            <input type="hidden" value="@listId" id="listId" />
+
+        </div>
+    }
+}

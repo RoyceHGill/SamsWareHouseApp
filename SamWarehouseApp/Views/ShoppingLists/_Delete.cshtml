@@ -1,0 +1,9 @@
+﻿@model SamWarehouseApp.Models.ShoppingList
+
+<h1 class="display-8 default-text-color">Deleting: @Model.Name</h1>
+
+<h3 class="default-text-color">Are you sure you want to delete @Model.Name?</h3>
+<div class="d-flex flex-row-reverse ">
+    <button type="button" id="@Model.Id" class="btn btn-danger mx-4 button-submit">Delete</button>
+    <button type="button" class="btn btn-primary mx-4" data-bs-dismiss="modal" id="close-shopping-list-modal">Cancel</button>
+</div>
